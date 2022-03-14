@@ -1,12 +1,17 @@
 import Head from 'next/head'
 import React from 'react'
-import { Heading } from '@chakra-ui/react'
+
+import BlogPreviewList from 'components/Blog/BlogPreviewList'
 
 const Home = () => {
 	return (
-		<div>
-			<Heading>Cules Coding</Heading>
-		</div>
+		<>
+			<Head>
+				<title>Cules Blog</title>
+			</Head>
+
+			<BlogPreviewList />
+		</>
 	)
 }
 
