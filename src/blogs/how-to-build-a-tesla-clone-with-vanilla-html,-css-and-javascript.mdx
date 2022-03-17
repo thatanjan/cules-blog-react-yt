@@ -1,0 +1,739 @@
+---
+title: How to build a Tesla clone with vanilla html, css and javascript
+description: Build the tesla clone.
+banner: /blogs/how-to-build-a-tesla-clone-with-vanilla-html,-css-and-javascript/banner.png
+customID: d22cec0e-ea5a-47e2-9fae-b7e5e8c4a94d
+---
+
+In this blog, you will learn how to build a tesla clone using vanilla HTML, CSS
+and JavaScript.
+
+## Knowledge Requirements:
+
+- Html
+- CSS
+- JavaScript
+
+## Features
+
+- Full page sections
+- Every section will have a snapping effect.
+- Navigation menu
+- Fully responsive
+
+## Video tutorial
+
+I have already made a video about it on my youtube channel. Check that out.
+
+<YouTube youTubeId='DwvJnDQgIIU' />
+
+Please like and subscribe to [Cules Coding](https://www.youtube.com/channel/UCBaGowNYTUsm3IDaHbLRMYw?sub_confirmation=1). It motivates me to create more content like this.
+
+## Live Preview
+
+You can preview this page visiting this [link](https://thatanjan.github.io/tesla-clone-yt/)
+
+<CodePen codePenId='wvrmybX' />
+
+## Resources
+
+All source code and media files can be found in the [github repo.](https://github.com/thatanjan/tesla-clone-yt)
+
+So, Let's start. We are going to build the page using the mobile-first approach.
+
+## Build the sections
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mnkkxmye4h07v4bc3j7c.png)
+
+```html
+<section id="fullpage">
+	<section class="section one">
+		<div class="section__content">
+			<h1 class="section__content__title">Model S</h1>
+			<h2 class="section__content__subtitle">
+				order online for <a href="#">Touchless delivery</a>
+			</h2>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#"
+				>Custom Order</a
+			>
+			<a class="section__action__btn action__btn__secondary" href="#"
+				>Existing inventory</a
+			>
+		</div>
+	</section>
+
+	<section class="section two">
+		<div class="section__content">
+			<h1 class="section__content__title">Model y</h1>
+			<h2 class="section__content__subtitle">
+				order online for <a href="#">Touchless delivery</a>
+			</h2>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#"
+				>Custom Order</a
+			>
+			<a class="section__action__btn action__btn__secondary" href="#"
+				>Existing inventory</a
+			>
+		</div>
+	</section>
+
+	<section class="section three">
+		<div class="section__content">
+			<h1 class="section__content__title">Model 3</h1>
+			<h2 class="section__content__subtitle">
+				order online for <a href="#">Touchless delivery</a>
+			</h2>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#"
+				>Custom Order</a
+			>
+			<a class="section__action__btn action__btn__secondary" href="#"
+				>Existing inventory</a
+			>
+		</div>
+	</section>
+
+	<section class="section four">
+		<div class="section__content">
+			<h1 class="section__content__title">Model x</h1>
+			<h2 class="section__content__subtitle">
+				order online for <a href="#">Touchless delivery</a>
+			</h2>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#"
+				>Custom Order</a
+			>
+			<a class="section__action__btn action__btn__secondary" href="#"
+				>Existing inventory</a
+			>
+		</div>
+	</section>
+
+	<section class="section five">
+		<div class="section__content">
+			<h1 class="section__content__title">solar panels</h1>
+			<h2 class="section__content__subtitle">
+				Lowest Cost Solar Panels In America
+			</h2>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#">Order now</a>
+			<a class="section__action__btn action__btn__secondary" href="#"
+				>Learn more</a
+			>
+		</div>
+	</section>
+
+	<section class="section six">
+		<div class="section__content">
+			<h1 class="section__content__title">Solar roofs</h1>
+			<h2 class="section__content__subtitle">
+				Produce Clean Energy From Your Roof
+			</h2>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#">Order now</a>
+			<a class="section__action__btn action__btn__secondary" href="#"
+				>Learn more</a
+			>
+		</div>
+	</section>
+
+	<section class="section seven">
+		<div class="section__content">
+			<h1 class="section__content__title">Accessories</h1>
+		</div>
+
+		<div class="section__action__container">
+			<a class="section__action__btn action__btn__primary" href="#">Shop now</a>
+		</div>
+	</section>
+</section>
+```
+
+```css
+.section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.section.one {
+	background-image: url(../media/1.avif);
+}
+
+.section.two {
+	background-image: url(../media/2.avif);
+}
+
+.section.three {
+	background-image: url(../media/3.avif);
+}
+
+.section.four {
+	background-image: url(../media/4.avif);
+}
+
+.section.five {
+	background-image: url(../media/5.avif);
+}
+
+.section.six {
+	background-image: url(../media/6.avif);
+}
+
+.section.seven {
+	background-image: url(../media/7.avif);
+}
+
+.section__content {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	text-align: center;
+	text-transform: capitalize;
+	color: var(--primary-color);
+}
+
+.section__content__title {
+	font-size: 4rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.section__content__subtitle {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.section__content__subtitle a {
+	color: inherit;
+}
+
+.section__content__subtitle a:hover {
+	text-decoration: underline;
+}
+
+.section__action__container {
+	position: absolute;
+	bottom: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.section__action__btn {
+	font-size: 1.5rem;
+	font-weight: 500;
+	padding: 1rem;
+	border-radius: 2rem;
+	flex-basis: 80%;
+	margin-bottom: 1rem;
+	text-transform: capitalize;
+}
+
+.action__btn__primary {
+	background: rgba(23, 26, 42, 0.8);
+	color: white;
+}
+
+.action__btn__secondary {
+	background: rgba(255, 255, 255, 0.65);
+	color: var(--primary-color);
+}
+```
+
+### Explaination:
+
+- First, we have wrapped all the sections into a container id of `#fullpage`. We will need this for making the full page look.
+- In every section, we have attached background images.
+- Every section will have to subsection.
+  1. Section content with title and subtitle.
+  2. Section actions that will have the action buttons at the bottom.
+
+Let's make the snapping effect. We need to use the [fullpagejs library](https://alvarotrigo.com/fullPage/)
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dzcsjblkumrgemlwgk06.png)
+
+Add the CDN links to your html.
+
+```html
+<head>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
+		integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	/>
+</head>
+
+<body>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"
+		integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+</body>
+```
+
+Let's add javascript.
+
+```javascript
+new fullpage('#fullpage', {
+	autoScrolling: true,
+	scrollBar: true,
+})
+```
+
+Explanation:
+
+- We have just created a new instance of fullpage. And passed the section container selector.
+
+And now you have the full page effect.
+
+## Let's build the footer
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d0hok4wege3vd8f12b8b.png)
+
+Include the following html inside the last full page section.
+
+```html
+<footer class="footer">
+	<ul>
+		<li><a href="#">Tesla © 2021</a></li>
+		<li><a href="#"> Privacy &amp; Legal </a></li>
+		<li><a href="#"> contact </a></li>
+		<li><a href="#">careers</a></li>
+		<li><a href="#">news</a></li>
+		<li><a href="#">engage</a></li>
+		<li><a href="#">locations</a></li>
+	</ul>
+</footer>
+```
+
+Let's create two css variables for color. If you don't know about css variables,
+you can check [ this blog ](https://www.culescoding.space/blog/everything-you-need-to-know-about-css-variables) out.
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nthmgfvzrbbw1jckt80y.png)
+
+```css
+:root {
+	--primary-color: #181b21;
+	--secondary-color: #5c5d61;
+}
+```
+
+```css
+.footer {
+	position: absolute;
+	z-index: 100;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer ul {
+	width: 80%;
+	margin: 2rem auto;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.footer ul li {
+	margin: 0 1rem;
+	margin-top: 1rem;
+	text-transform: capitalize;
+	font-weight: 600;
+}
+
+.footer ul li a {
+	color: var(--secondary-color);
+	font-size: 1.2rem;
+}
+```
+
+## Let's build the header
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6wg0dh1kxu031fg6ahlb.png)
+
+```html
+<header class="header">
+	<a class="header__left" href="#">
+		<img class="header__logo" src="media/tesla_logo.svg" alt="" />
+	</a>
+
+	<ul class="header__middle"></ul>
+
+	<div class="header__right">
+		<a class="header__nav__btn" href="#">shop</a>
+		<a class="header__nav__btn" href="#">account</a>
+		<a class="header__nav__btn menu__btn" href="#">menu</a>
+	</div>
+</header>
+```
+
+```css
+.header {
+	height: 5rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header__middle {
+	display: none;
+}
+
+.header__left {
+	display: block;
+	overflow: hidden;
+	padding: 0 2rem;
+}
+
+.header__logo {
+	height: 100%;
+	width: 13rem;
+}
+
+.header__right {
+	margin: auto 0;
+	margin-right: 1rem;
+}
+
+.header__nav__btn {
+	display: none;
+	font-size: 1.4rem;
+	font-weight: bold;
+	padding: 1rem;
+	color: var(--secondary-color);
+	border-radius: 1.5rem;
+	text-transform: capitalize;
+	transition: background 0.3s linear;
+}
+
+.header__nav__btn:hover {
+	background: #0000001c;
+}
+
+.header__nav__btn.menu__btn {
+	display: inline-block;
+}
+```
+
+Explanation:
+
+- The header will have three parts.
+  1. Header logo
+  2. Header middle part. It will be some navigation links. But only will be visible on large screens.
+  3. Header right part will have three links. But only the `menu` link will be
+     visible to toggle the right navigation.
+
+## Let's build the right navigation
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hfyzxdvu593rfcz9xj75.png)
+
+```html
+<div class="blur__overlay"></div>
+
+<nav class="navigation">
+	<div class="close__btn__container">
+		<img class="navigation__close__btn" src="media/close_icon.svg" alt="" />
+	</div>
+
+	<ul>
+		<li class="link__in__middle">
+			<a class="nav__link" href="#">Model S</a>
+		</li>
+		<li class="link__in__middle">
+			<a class="nav__link" href="#">Model 3</a>
+		</li>
+		<li class="link__in__middle">
+			<a class="nav__link" href="#">Model X</a>
+		</li>
+		<li class="link__in__middle">
+			<a class="nav__link" href="#">Model Y</a>
+		</li>
+		<li class="link__in__middle">
+			<a class="nav__link" href="#">Solar roofs</a>
+		</li>
+		<li class="link__in__middle">
+			<a class="nav__link" href="#">Solar panels</a>
+		</li>
+		<li><a class="nav__link" href="#">Existing Inventory </a></li>
+		<li><a class="nav__link" href="#">Used Inventory </a></li>
+		<li><a class="nav__link" href="#">Trade-In </a></li>
+		<li><a class="nav__link" href="#">Test drive </a></li>
+		<li><a class="nav__link" href="#">Powerwall </a></li>
+		<li><a class="nav__link" href="#">Commercial Energy </a></li>
+		<li><a class="nav__link" href="#">utilities </a></li>
+		<li><a class="nav__link" href="#">Charging</a></li>
+		<li><a class="nav__link" href="#">Find us</a></li>
+		<li><a class="nav__link" href="#">Support</a></li>
+		<li><a class="nav__link" href="#">Investor Relations</a></li>
+	</ul>
+</nav>
+```
+
+```css
+.navigation {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 80%;
+	max-width: 35rem;
+	height: 100%;
+	z-index: 10;
+	background: #fff;
+	transform: translateX(100%);
+	transition: transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+}
+
+.navigation.is--active {
+	transform: translateX(0);
+}
+
+.navigation ul {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.navigation ul li {
+	width: 100%;
+	padding: 1.2rem 0;
+	padding-left: 2rem;
+	margin-bottom: 0.5rem;
+	cursor: pointer;
+	border-radius: 1.2rem;
+	transition: background-color 0.33s ease;
+}
+
+.nav__link {
+	color: #393c41;
+	font-weight: 600;
+	font-size: 1.5rem;
+	text-transform: capitalize;
+}
+
+.navigation ul li:hover {
+	background: #0000000d;
+}
+
+.close__btn__container {
+	text-align: right;
+	margin: 2rem 3rem;
+}
+
+.navigation__close__btn {
+	width: 3rem;
+	cursor: pointer;
+}
+
+.blur__overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(1rem);
+	transition: display 0.4s ease;
+}
+
+.blur__overlay.is--active {
+	display: block;
+}
+```
+
+```javascript
+const menuBtn = document.querySelector('.menu__btn')
+const navigation = document.querySelector('.navigation')
+const navCloseBtn = document.querySelector('.navigation__close__btn')
+
+const blurOverlay = document.querySelector('.blur__overlay')
+
+const IS_ACTIVE = 'is--active'
+
+const toggleNavigation = () => {
+	navigation.classList.toggle(IS_ACTIVE)
+	blurOverlay.classList.toggle(IS_ACTIVE)
+}
+
+const CLICK = 'click'
+
+menuBtn.addEventListener(CLICK, toggleNavigation)
+navCloseBtn.addEventListener(CLICK, toggleNavigation)
+blurOverlay.addEventListener(CLICK, toggleNavigation)
+```
+
+Explanation:
+
+- Some links on the right navigation will be present on the header middle navigation. That's why they have an extra class `link__in__middle`.
+- The navigation will only be visible if the `is--active` class is present.
+- We will toggle the class when we will click on the menu button and navigation close icon.
+- If the nav is open, then a blurred background will be visible. It will also close the nav if it is clicked.
+
+And our webpage is almost done. We only need to make it responsive. And also we need to create the header middle navigation.
+
+## Let's make the webpage responsive
+
+```css
+/* sm=600 */
+/* md=900 */
+/* lg=1200 */
+/* xl=1600 */
+
+@media screen and (min-width: 600px) {
+	.section__action__btn {
+		max-width: 30rem;
+		padding: 1.5rem;
+		flex-basis: 40%;
+	}
+
+	.section__action__container {
+		justify-content: space-evenly;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.section__action__container {
+		width: 70%;
+	}
+
+	.footer ul {
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.header__nav__btn {
+		display: inline-block;
+	}
+
+	.header__left {
+		padding: 0 2rem;
+		margin: 0 3rem;
+	}
+
+	.header__right {
+		margin: auto 2rem;
+	}
+
+	.link__in__middle {
+		display: none;
+	}
+
+	.section__action__container {
+		width: 60%;
+	}
+
+	.footer ul {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.footer ul {
+		width: 40%;
+	}
+
+	.section__action__container {
+		width: 50%;
+	}
+}
+```
+
+Now our website is responsive. But we have to add the header middle.
+
+## Let's add header middle
+
+```html
+<ul class="header__middle">
+	<li><a class="header__nav__btn" href="#">Model S</a></li>
+	<li><a class="header__nav__btn" href="#">Model 3</a></li>
+	<li><a class="header__nav__btn" href="#">Model X</a></li>
+	<li><a class="header__nav__btn" href="#">Model Y</a></li>
+	<li><a class="header__nav__btn" href="#">solar roof</a></li>
+	<li><a class="header__nav__btn" href="#">solar panels</a></li>
+</ul>
+```
+
+```css
+.header__middle {
+	display: flex;
+	align-items: center;
+}
+```
+
+Explanation:
+
+- Header middle links will be the same as the Header nav buttons.
+- They will be visible on LG screens
+
+## Block scroll while right nav is open
+
+```css
+#fullpage.no-scroll {
+	overflow-y: hidden;
+	max-height: 100vh;
+}
+```
+
+```javascript
+const toggleNavigation = () => {
+	navigation.classList.toggle(IS_ACTIVE)
+	blurOverlay.classList.toggle(IS_ACTIVE)
+	fullpageEl.classList.toggle('no-scroll') // add this new line
+}
+```
+
+Explanation:
+
+- If the `no-scroll` class is present on the `fullpage` container, then scroll will be blocked
+
+And that's it. Our webpage is ready.
+
+## xs
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/50mj4z2j7yycn54ghkdr.png)
+
+## sm
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gnevhtj8c4a6zg67fk1q.png)
+
+## MD
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/honfwqsnjzydkeujtr5z.png)
+
+## LG
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sxbvt2x824b3pi3g7h0y.png)
+
+## xl
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pmm3nmw0gloyb1mb3jam.png)

@@ -1,0 +1,49 @@
+---
+title: Access cookies in NextJS from server side
+description: Accessing cookies in nextjs from server side can be tricky. In this blog you will learn how to do that
+altText: Accessing cookies in nextjs from server side can be tricky. In this blog you will learn how to do that
+banner: /blogs/access-cookies-in-nextjs-from-server-side/banner.png
+customID: 60b5a98b7c422d1652cc1307
+---
+
+If you want to set an authentication system like jwt, then you have to store your token inside the client(browser). You store them either in localStorage or as a cookie. But when you perform any kind of server-side operation, then you don't have access to the client. So you can't access the cookies from the server-side. Then what is the solution?
+
+### The solution.
+
+{/* <Gist gistLink='thatanjan/44246988c063d881d24eb9cbbcd13b2a' /> */}
+
+```typescript
+import { GetServerSideProps } from 'next'
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	const { req, res } = ctx
+
+	const { cookies } = req
+
+	return { props: {} }
+}
+```
+
+I have created a YouTube video about this. You can check that out. If you like this video, please like and subscribe to my channel.
+
+{/*  <YouTube youTubeId="RECwLOZdiR4" /> */}
+
+You can access the cookies from the request object inside the `getServerSideProps` data fetching method. You can learn about data fetching methods of nextjs from [ here ](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering).
+
+`getServerSideProps` method takes context as a parameter. A context is a giant object. Request and Response object is inside the context object.
+
+```typescript
+const { req, res } = ctx
+```
+
+In the `request` object you'll find a `cookies` object.
+
+```typescript
+const { cookies } = req
+```
+
+All your cookies will be inside the `cookies` object.
+
+So that's it for this blog.
+
+{/* <Tweet tweetLink="PaulieScanlon/status/1232982448310497286" /> */}

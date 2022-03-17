@@ -1,0 +1,204 @@
+---
+title: How to create a beautiful parallax landing page with jarallax.js
+description:
+banner: /blogs/how-to-create-a-beautiful-parallax-landing-page-with-jarallax.js/banner.png
+altText: How to create a beautiful parallax landing page with jarallax.js in Cules Coding by @thatanjan
+customID: e_sP5zn142FexWbWqjeyG
+---
+
+In this article, I will show you how to create a beautiful parallax landing page with jarallax.js.
+
+## Source Code
+
+<CodePen codePenId='eYeRBGo' />
+
+You can find the source code and images from this repository on [GitHub](https://github.com/thatanjan/parallax-website-yt).
+Feel free to star it if you like it and fork to make your own version.
+
+## Video tutorial
+
+I have already made a video about it on my youtube channel. Check that out.
+
+<YouTube youTubeId='ycYca2RDVMY' />
+
+Please like and subscribe to [Cules Coding](https://www.youtube.com/channel/UCBaGowNYTUsm3IDaHbLRMYw?sub_confirmation=1). It motivates me to create more content like this.
+
+## CDN
+
+```html
+<script src="https://unpkg.com/jarallax@2.0"></script>
+```
+
+## Html
+
+```html
+<header class="header">
+	<a class="logo" href="#">Parallax</a>
+</header>
+
+<section class="container">
+	<div class="jarallax">
+		<img class="jarallax-img" src="./media/1.webp" alt="" />
+		<h2 class="text">Consectetur sunt</h2>
+	</div>
+
+	<div class="jarallax">
+		<img class="jarallax-img" src="./media/2.webp" alt="" />
+		<h2 class="text">Dolor odio.</h2>
+	</div>
+	<div class="jarallax">
+		<img class="jarallax-img" src="./media/3.webp" alt="" />
+		<h2 class="text">Adipisicing pariatur</h2>
+	</div>
+	<div class="jarallax">
+		<img class="jarallax-img" src="./media/4.webp" alt="" />
+		<h2 class="text">Consectetur accusamus?</h2>
+	</div>
+	<div class="jarallax">
+		<img class="jarallax-img" src="./media/5.webp" alt="" />
+		<h2 class="text">Ipsum deleniti?</h2>
+	</div>
+</section>
+```
+
+Explanation:
+
+- We have added a container to contain all the jarallax elements.
+- Each jarallax element has an image and a text.
+
+## Css
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@700&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+	background-color: #1b1b1b;
+	font-family: 'Cousine', monospace;
+	color: white;
+}
+
+.header {
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 5rem;
+}
+
+.logo {
+	font-size: 3rem;
+	font-weight: 700;
+	color: white;
+	letter-spacing: 0.1rem;
+	text-decoration: none;
+}
+
+.container {
+	width: 90vw;
+	margin: 0 auto;
+	display: grid;
+	grid-row-gap: 5rem;
+	padding: 10rem 0;
+}
+
+.jarallax {
+	position: relative;
+	display: grid;
+	align-items: center;
+	width: 100%;
+	height: 100vw;
+	max-height: 60rem;
+	min-height: 40rem;
+}
+
+.text {
+	z-index: 10;
+	font-size: 3rem;
+	text-transform: uppercase;
+	margin-left: 10vw;
+}
+
+.jarallax:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 600px) {
+	.jarallax {
+		max-height: 70rem;
+	}
+
+	.container {
+		grid-row-gap: 8rem;
+	}
+
+	.text {
+		font-size: 5rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.jarallax {
+		width: 90%;
+	}
+
+	.container {
+		grid-row-gap: 15rem;
+		width: 95vw;
+	}
+
+	.text {
+		font-size: 7rem;
+	}
+}
+```
+
+Explanation:
+
+- The container is a grid layout.
+- All the jarallax elements have to be `position: relative`.
+- Also above every image there is an overlay.
+
+## JavaScript
+
+```javascript
+const jarallaxEls = document.querySelectorAll('.jarallax')
+
+jarallaxEls.forEach((el, index) => {
+	if (index % 2) return false
+
+	el.style.justifySelf = 'end'
+})
+
+jarallax(jarallaxEls, {})
+```
+
+Explanation:
+
+- We have selected all the jarallax elements.
+- Then we have used the `jarallax` function to create the parallax effect. The second parameter is an object which will contain the options. You can see the options in the [ documentation ](https://github.com/nk-o/jarallax/).
+- All odd number jarallax elements will be placed on the right side. I have tried to use the `:nth-child(odd)` selector but it didn't work.
+- So, we have used a loop to iterate through the elements and set the `justifySelf` property to all odd elements.
+
+Our final Result:
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4zx3oes3wr1vrn8fmxhg.gif)
+
+That's it for this article. I have tried to make it as simple as possible. If you have any questions, feel free to contact me.

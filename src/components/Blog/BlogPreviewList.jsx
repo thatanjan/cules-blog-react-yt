@@ -5,7 +5,7 @@ import { Box, Heading } from '@chakra-ui/react'
 
 import BlogPreviewCard from './BlogPreviewCard'
 
-const BlogPreviewList = () => {
+const BlogPreviewList = ({ header, blogs }) => {
 	return (
 		<>
 			<Box mt={8} mb={16}>
@@ -16,14 +16,12 @@ const BlogPreviewList = () => {
 						fontSize: '5xl',
 					}}
 				>
-					Top Blogs
+					{header}
 				</Heading>
 
-				{Array(10)
-					.fill(0)
-					.map(() => (
-						<BlogPreviewCard key={nanoid()} />
-					))}
+				{blogs.map((blog) => (
+					<BlogPreviewCard {...blog} key={nanoid()} />
+				))}
 			</Box>
 		</>
 	)
