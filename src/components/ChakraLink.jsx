@@ -16,6 +16,7 @@ const ChakraNextLink = ({
 	chakraLinkProps = {},
 	noUnderline,
 	overlay,
+	color,
 	...props
 }) => {
 	const LinkComponent = overlay ? LinkOverlay : ChakraLink
@@ -27,7 +28,7 @@ const ChakraNextLink = ({
 
 	return (
 		<Link href={href} passHref>
-			<LinkComponent {...chakraLinkProps}>
+			<LinkComponent color={color} {...chakraLinkProps}>
 				<ChakraComponent {...props}>{children}</ChakraComponent>
 			</LinkComponent>
 		</Link>
@@ -38,6 +39,17 @@ const ChakraButtonLink = (props) => (
 	<ChakraNextLink ChakraComponent={Button} noUnderline {...props} />
 )
 
-export { ChakraButtonLink }
+const ChakraTextLink = (props) => {
+	const { colorMode } = useColorMode()
+	return (
+		<ChakraLink
+			ChakraComponent={Text}
+			{...props}
+			color={`teal.${colorMode === 'light' ? 500 : 200}`}
+		/>
+	)
+}
+
+export { ChakraButtonLink, ChakraTextLink }
 
 export default ChakraNextLink

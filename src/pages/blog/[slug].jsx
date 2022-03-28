@@ -8,11 +8,13 @@ import Blog from 'mongoose/models/Blog'
 
 import BlogHead from 'components/Blog/BlogHead'
 
+import MdxComponents from 'components/MDX/MdxComponents'
+
 const BlogPage = ({ mdxSource, blogData }) => {
 	return (
 		<>
 			<BlogHead {...blogData} />
-			<MDXRemote {...mdxSource} />
+			<MDXRemote {...mdxSource} components={MdxComponents} />
 		</>
 	)
 }
