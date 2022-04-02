@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Build your own Blog with React and Nextjs
 
-## Getting Started
+This repository belongs to [Build your own Blog with React and Nextjs](https://youtu.be/dMGdsjmw0q8) video series by
+[Cules Coding](https://www.youtube.com/playlist?list=PLEr-WXao6eSPBeUOaaHnQ1qG22_J5hM1o) youtube channel.
 
-First, run the development server:
+## Demo
+
+You can demo the website from [here](https://cules-blog-demo.vercel.app/)
+
+## Features
+
+- Static Blog pages which will make the website load faster.
+- Blogs will have code blocks with syntax highlighting and many embed components like youtube video, github gist, twitter and so many other things.
+- Autocomplete search feature for the blog posts.
+- Real time view counter and so on.
+
+## Lessons
+
+- [Intro & Setup](https://youtu.be/dMGdsjmw0q8)
+
+## Technologies (Frontend)
+
+- [React](https://reactjs.org/)
+- [Nextjs](https://nextjs.org/)
+- [Chakra-ui](https://chakra-ui.com/)
+- [SWR](https://swr.vercel.app/)
+- [MDX](https://mdxjs.com/)
+
+## Technologies (Backend)
+
+- [Nextjs API Routes](https://nextjs.org/)
+- [MongoDB](https://www.mongodb.com/)
+
+## Installation
+
+- Create a nextjs app
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn create next-app <app-name>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Install dependencies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 nanoid
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Authors
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [@thatanjan](https://www.github.com/thatanjan)
 
-## Learn More
+## Support
 
-To learn more about Next.js, take a look at the following resources:
+For support, subscribe to [Cules Coding](https://www.youtube.com/playlist?list=PLEr-WXao6eSPBeUOaaHnQ1qG22_J5hM1o) youtube channel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Related
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Here are some related projects
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Build a blog with JAMstack](https://github.com/thatanjan/cules-blog-yt)
