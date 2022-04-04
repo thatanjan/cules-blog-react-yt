@@ -6,6 +6,7 @@ import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons'
 
 import AppDrawer from './AppDrawer'
 import Search from './Search'
+import ChakraNextLink from './ChakraLink'
 
 const CustomIconButton = ({ Icon, ...props }) => {
 	return <IconButton icon={<Icon />} {...props} size='lg' ml='1rem' />
@@ -37,12 +38,21 @@ const HamburgerNav = () => {
 const Logo = () => {
 	const dimension = 70
 	return (
-		<Image
-			src='/logo.jpg'
-			height={dimension}
-			width={dimension}
-			alt='Cules Coding'
-		/>
+		<ChakraNextLink
+			href='/'
+			chakraLinkProps={{
+				_focus: {
+					outline: 0,
+				},
+			}}
+		>
+			<Image
+				src='/logo.jpg'
+				height={dimension}
+				width={dimension}
+				alt='Cules Coding'
+			/>
+		</ChakraNextLink>
 	)
 }
 
