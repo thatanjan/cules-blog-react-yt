@@ -1,0 +1,915 @@
+---
+title: How to build a Hulu clone with vanilla HTML, CSS, and JavaScript
+description: In this blog, you will learn how to build a Hulu clone using vanilla HTML, CSS, and JavaScript.
+banner: /blogs/build-a-hulu-landing-page-clone-with-html,-css-&-javascript/banner.png
+altText: Hulu Clone made by Cules Coding.
+customID: ab217887-dcc5-44dc-9ba1-135f969ab86a
+---
+
+## Video tutorial
+
+I have already made a video about it on my youtube channel.
+
+<YouTube youTubeId='jwwbR_3p-pM' />
+
+Please like and [subscribe](https://www.youtube.com/channel/UCBaGowNYTUsm3IDaHbLRMYw?sub_confirmation=1) to my channel. It motivates me to create more content like this.
+
+## Live Preview
+
+You can preview this website by visiting [this link](https://thatanjan.github.io/hulu-landing-page-clone-yt/)
+
+## Source Code
+
+https://github.com/thatanjan/hulu-landing-page-clone-yt
+
+## Knowledge Requirements(Basic):
+
+- Html
+- CSS
+- JavaScript
+
+So, Let's start. We are going to build the page using the mobile-first approach.
+
+## Build the top section
+
+```html
+<section class="top__section">
+	<div class="top">
+		<button class="login__link">Log in</button>
+	</div>
+
+	<div class="middle">
+		<div class="title">BUNDLE WITH ANY HULU PLAN & SAVE</div>
+
+		<div class="middle__banner">
+			<img src="media/logos.png" alt="" />
+		</div>
+
+		<div class="subtitle">
+			Get endless entertainment, live sports, and the shows and movies you love.
+		</div>
+
+		<button class="bundle__button">GET THE DISNEY BUNDLE</button>
+
+		<div class="details">
+			<a href="#"> See details </a>
+			and
+			<a href="#"> Bundle terms </a>
+		</div>
+	</div>
+
+	<div class="bottom">
+		<img src="media/logo.png" alt="" class="logo" />
+
+		<div class="bottom__middle__container">
+			<div class="title">TRY UP TO ONE MONTH FREE</div>
+			<div class="description">
+				Here just for Hulu? Get thousands of TV shows and movies.
+			</div>
+		</div>
+
+		<a href="#" class="free__trial__button"> start your free trial </a>
+	</div>
+</section>
+```
+
+```css
+.top__section {
+	position: relative;
+	background-image: url(../media/header.jpg);
+	height: 100vh;
+	min-height: 80rem;
+	background-repeat: no-repeat;
+	color: white;
+}
+
+.top__section .top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 10rem;
+	width: 100%;
+	display: grid;
+	align-items: center;
+	justify-content: end;
+}
+
+.login__link {
+	font-size: 1.5rem;
+	text-transform: capitalize;
+	font-weight: bold;
+	margin-right: 2rem;
+}
+
+.top__section .bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 25rem;
+	background-color: red;
+	display: grid;
+	grid-template-columns: 1fr;
+	place-items: center;
+	padding: 2rem;
+	background: linear-gradient(
+		179.81deg,
+		rgba(4, 4, 4, 0.7) 0.17%,
+		rgba(4, 4, 4, 0.45) 85.02%,
+		rgba(4, 4, 4, 0.3) 112.52%
+	);
+	text-align: center;
+}
+
+.top__section .bottom .logo {
+	height: 3rem;
+}
+
+.title {
+	color: var(--logo-green);
+	font-size: 1.3rem;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	line-height: 3;
+}
+
+.top__section .bottom .description {
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+.free__trial__button {
+	display: inline-block;
+	padding: 1.5rem 3rem;
+	color: white;
+	text-transform: uppercase;
+	border: 0.2rem solid white;
+	border-radius: 0.5rem;
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+.top__section .middle {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	text-align: center;
+	padding-top: 15vh;
+	margin: 0 auto;
+	max-width: 80rem;
+}
+
+.middle__banner {
+	padding: 0 2rem;
+}
+
+.middle__banner img {
+	height: 100%;
+	width: 100%;
+}
+
+.top__section .middle .subtitle {
+	margin-top: 0.8rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.bundle__button {
+	background-color: white;
+	color: black;
+	font-size: 1.5rem;
+	font-weight: 700;
+	border-radius: 0.5rem;
+	margin: 2.5rem 0;
+	width: 80%;
+	max-width: 30rem;
+	height: 5rem;
+}
+
+.bundle__button:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.top__section .details {
+	opacity: 0.7;
+}
+
+.top__section .details a {
+	color: white;
+	text-decoration: underline;
+}
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8qwjkfofrifty7gzkemm.png)
+
+## Build the login modal
+
+On a small screen size, the login modal will act as a side section.
+
+```html
+<section class="modal__container">
+	<div class="modal__overlay"></div>
+
+	<div class="login__modal">
+		<div class="modal__header">
+			<div class="close__icon"></div>
+		</div>
+
+		<form class="login__form" action="">
+			<h2 class="title">Log in</h2>
+
+			<label for="email">Email</label>
+			<input type="email" id="email" />
+
+			<label for="password">Password</label>
+			<input type="password" id="password" />
+
+			<a href="#" class="forget__link"> Forgot your email or password? </a>
+
+			<button type="submit" class="login__button">Log in</button>
+		</form>
+
+		<div class="modal__bottom__text">
+			Don't have an account?
+			<a href="#">Start your free trial</a>
+		</div>
+	</div>
+</section>
+```
+
+```css
+.modal__container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+.modal__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.modal__container.is-open {
+	display: block;
+}
+
+.login__modal {
+	height: 100vh;
+	background-color: white;
+	max-width: 50rem;
+	width: 90%;
+	min-width: 20rem;
+	padding: 5rem;
+	padding-top: 0;
+}
+
+.modal__header {
+	height: 7rem;
+	display: grid;
+	place-items: center right;
+}
+
+.modal__header .close__icon {
+	background-image: url(../media/close.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 2rem;
+	width: 2rem;
+	cursor: pointer;
+}
+
+.login__form {
+	display: flex;
+	flex-direction: column;
+}
+
+.login__form .title {
+	color: #272c35;
+	font-size: 2.4rem;
+	font-weight: 500;
+	letter-spacing: 0.25px;
+	margin: 3.2rem 0;
+}
+
+.login__form label {
+	color: #636e85;
+	font-size: 1.5rem;
+	font-weight: 800;
+	letter-spacing: 1.25px;
+	line-height: 2;
+}
+
+.login__form input {
+	width: 100%;
+	height: 4.8rem;
+	border-radius: 0.4rem;
+	font-size: 1.6rem;
+	text-indent: 1.6rem;
+	color: #000;
+	margin-top: 0.8rem;
+	margin-bottom: 2.4rem;
+	border: 1px solid #272c35;
+}
+
+.forget__link {
+	color: #176ee1;
+	font-size: 1.4rem;
+	text-decoration: none;
+	margin-bottom: 3rem;
+}
+
+.forget__link:hover {
+	text-decoration: underline;
+}
+
+.login__button {
+	width: 100%;
+	height: 4.8rem;
+	border: 0;
+	border-radius: 0.4rem;
+	background-color: #040405;
+	font-size: 1.4rem;
+	font-weight: 500;
+	letter-spacing: 1.5px;
+	text-align: center;
+	padding: 1.7rem 0;
+	margin-bottom: 0.8rem;
+	opacity: 0.5;
+}
+
+.modal__bottom__text {
+	font-size: 1.4rem;
+	font-weight: 500;
+	letter-spacing: 1.25px;
+	margin-top: 10rem;
+	text-align: center;
+}
+```
+
+```javascript
+const modalContainerEl = document.querySelector('.modal__container')
+const modalCloseEl = document.querySelector('.close__icon')
+const loginLinkEl = document.querySelector('.login__link')
+const modalOverlayEl = document.querySelector('.modal__overlay')
+
+const IS_OPEN = 'is-open'
+
+const toggleModal = () => modalContainerEl.classList.toggle(IS_OPEN)
+
+modalOverlayEl.addEventListener('click', toggleModal)
+modalCloseEl.addEventListener('click', toggleModal)
+loginLinkEl.addEventListener('click', toggleModal)
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rp7jot0a7u92gptgti39.png)
+
+Explanation:
+
+1. If the modal container has an `is-open` class then the modal will be shown.
+2. If a close icon or overlay is clicked then it will hide the modal.
+
+## Build the library section
+
+```html
+<section class="library">
+	<div class="library__header">
+		<div class="title">INCLUDED IN ALL PLANS</div>
+
+		<div class="library__title">All The TV You Love</div>
+
+		<div class="library__description">
+			Stream full seasons of exclusive series, current-season episodes, hit movies,
+			Hulu Originals, kids shows, and more.
+		</div>
+	</div>
+
+	<div class="library__grid">
+		<a href="#" class="library__grid__item">
+			<div class="library__text__container">
+				<div class="text1">Past and Current Seasons</div>
+				<div class="text2">Tv shows</div>
+			</div>
+
+			<div class="overlay"></div>
+
+			<img src="media/cover-1.jpg" alt="" />
+		</a>
+
+		<a href="#" class="library__grid__item">
+			<div class="library__text__container">
+				<div class="text1">Past and Current Seasons</div>
+				<div class="text2">Tv shows</div>
+			</div>
+
+			<div class="overlay"></div>
+
+			<img src="media/cover-2.jpg" alt="" />
+		</a>
+
+		<a href="#" class="library__grid__item">
+			<div class="library__text__container">
+				<div class="text1">Past and Current Seasons</div>
+				<div class="text2">Tv shows</div>
+			</div>
+
+			<div class="overlay"></div>
+
+			<img src="media/cover-3.jpg" alt="" />
+		</a>
+
+		<a href="#" class="library__grid__item">
+			<div class="library__text__container">
+				<div class="text1">Past and Current Seasons</div>
+				<div class="text2">Tv shows</div>
+			</div>
+
+			<div class="overlay"></div>
+
+			<img src="media/cover-4.jpg" alt="" />
+		</a>
+	</div>
+</section>
+```
+
+```css
+.library {
+	min-height: 100vh;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.library__header {
+	color: white;
+	text-align: center;
+	padding: 5rem 2rem;
+}
+
+.library__title {
+	font-size: 3.6rem;
+	font-weight: bold;
+	margin-bottom: 1.6rem;
+}
+
+.library__description {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 500;
+}
+
+.library__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 2rem;
+	padding: 2rem;
+	justify-items: center;
+}
+
+.library__grid__item {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.library__grid__item img {
+	width: 100%;
+	height: auto;
+	position: relative;
+}
+
+.overlay {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+			156.82deg,
+			rgba(0, 0, 0, 0.6) 4.58%,
+			rgba(0, 0, 0, 0) 69.61%
+		), linear-gradient(24.5deg, rgba(0, 0, 0, 0.2) 4.71%, rgba(0, 0, 0, 0) 71.49%);
+	z-index: 5;
+}
+
+.library__text__container {
+	padding: 2rem;
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.library__text__container .text1 {
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.library__text__container .text2 {
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+}
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sqwugqg5vuxoby0wwbzo.png)
+
+## Build the spotlight section
+
+```html
+<section class="spotlight">
+	<div class="spotlight__content">
+		<div class="spotlight__header">
+			<h2>Live sports</h2>
+		</div>
+
+		<div class="spotlight__title">Live sports</div>
+
+		<div class="spotlight__description">
+			Catch your games at home or on the go. Stream live games from major college
+			and pro leagues including the NCAA®, NBA, NHL, NFL, and more.
+		</div>
+
+		<div class="channel__stack">
+			<div class="channel__item">
+				<img class="channel__icon" src="./media/live-sports-logo-1.png" alt="" />
+			</div>
+			<div class="channel__item">
+				<img class="channel__icon" src="./media/live-sports-logo-2.png" alt="" />
+			</div>
+			<div class="channel__item">
+				<img class="channel__icon" src="./media/live-sports-logo-3.svg" alt="" />
+			</div>
+			<div class="channel__item">
+				<img class="channel__icon" src="./media/live-sports-logo-4.png" alt="" />
+			</div>
+		</div>
+	</div>
+</section>
+```
+
+```css
+.spotlight {
+	height: 100vh;
+	min-height: 80rem;
+	background-image: url(../media/live-sports-small.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: white;
+	padding: 2rem;
+}
+
+.spotlight__content {
+	text-align: center;
+	padding: 0 2rem;
+}
+
+.spotlight__header {
+	display: inline-block;
+	margin: 6rem 0;
+	border-bottom: 0.6rem solid white;
+	padding-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+.spotlight__title {
+	font-weight: bold;
+	font-size: 3.5rem;
+	line-height: 4rem;
+	margin: 2rem 0;
+}
+
+.spotlight__description {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+
+.channel__stack {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 55rem;
+}
+
+.channel__item {
+	background-image: url(../media/network-logo-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 8rem;
+	width: 8rem;
+	display: grid;
+	place-items: center;
+	margin-right: 2rem;
+	margin-top: 3rem;
+}
+
+.channel__icon {
+	width: 70%;
+	height: 70%;
+	object-fit: contain;
+}
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rhwbs6s4u8qwcyejc5px.png)
+
+## Build the footer
+
+```html
+<footer class="footer">
+	<div class="footer__section__container">
+		<div class="footer__section">
+			<div class="footer__section__title">
+				<div class="title__text">Browse</div>
+				<div class="expand__section__icon"></div>
+			</div>
+			<div class="footer__section__links">
+				<div class="section__links__column">
+					<a class="footer__section__link" href="#">Streaming Library</a>
+					<a class="footer__section__link" href="#">live tv</a>
+					<a class="footer__section__link" href="#">live news</a>
+					<a class="footer__section__link" href="#">live sports</a>
+				</div>
+				<div class="section__links__column">
+					<a class="footer__section__link" href="#">tv shows</a>
+					<a class="footer__section__link" href="#">movies</a>
+					<a class="footer__section__link" href="#">originals</a>
+					<a class="footer__section__link" href="#">networks</a>
+				</div>
+				<div class="section__links__column">
+					<a class="footer__section__link" href="#">hbo max</a>
+					<a class="footer__section__link" href="#">cinemax</a>
+					<a class="footer__section__link" href="#">showtime</a>
+					<a class="footer__section__link" href="#">STARZ</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer__section">
+			<div class="footer__section__title">
+				<div class="title__text">Help</div>
+				<div class="expand__section__icon"></div>
+			</div>
+			<div class="footer__section__links">
+				<div class="section__links__column">
+					<a class="footer__section__link" href="#">Account and billing</a>
+					<a class="footer__section__link" href="#">Plans & Pricing</a>
+					<a class="footer__section__link" href="#"> Supported Devices </a>
+					<a class="footer__section__link" href="#">Accessibility</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer__section">
+			<div class="footer__section__title">
+				<div class="title__text">About us</div>
+				<div class="expand__section__icon"></div>
+			</div>
+			<div class="footer__section__links">
+				<div class="section__links__column">
+					<a class="footer__section__link" href="#">shop hulu</a>
+					<a class="footer__section__link" href="#">Press</a>
+					<a class="footer__section__link" href="#"> jobs</a>
+					<a class="footer__section__link" href="#">Contact</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="social__media__container">
+		<a class="social__media__link facebook" href="#"></a>
+		<a class="social__media__link twitter" href="#"></a>
+		<a class="social__media__link youtube" href="#"></a>
+		<a class="social__media__link instagram" href="#"></a>
+	</section>
+
+	<section class="footer__legal__links">
+		<a href="#" class="footer__section__link">About ads</a>
+		<a href="#" class="footer__section__link">Terms of Use</a>
+		<a href="#" class="footer__section__link">Privacy Policy</a>
+		<a href="#" class="footer__section__link"
+			>Do Not Sell My Personal Information</a
+		>
+		<a href="#" class="footer__section__link">Your California Privacy Rights</a>
+		<a href="#" class="footer__section__link">TV Parental Guidelines</a>
+		<a href="#" class="footer__section__link">Sitemap</a>
+		<a href="#" class="footer__section__link">© 2021 Hulu, LLC</a>
+	</section>
+</footer>
+```
+
+```css
+.footer {
+	background-color: #f5f6f7;
+	padding: 0 4rem;
+	text-transform: capitalize;
+}
+
+.footer__section {
+	border-bottom: 1px solid #dcdfe6;
+}
+
+.footer__section__title {
+	padding: 5rem 0;
+	cursor: pointer;
+	display: flex;
+}
+
+.footer__section__title .title__text {
+	color: #262930;
+	flex-grow: 1;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.expand__section__icon {
+	background-image: url(../media/expand-button.png);
+	height: 2rem;
+	width: 2rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0 2rem;
+	transform: rotateZ(0deg);
+	transition: transform 0.3s ease-in-out;
+}
+
+.footer__section.is-expanded .expand__section__icon {
+	transform: rotateZ(180deg);
+}
+
+.footer__section__links {
+	display: none;
+	grid-template-columns: 1fr;
+}
+
+.footer__section.is-expanded .footer__section__links {
+	display: grid;
+}
+
+.footer__section__links .section__links__column {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+}
+
+.footer__section__link {
+	display: block;
+	color: #656b7b;
+	font-size: 1.4rem;
+	padding-right: 1.5rem;
+	padding-bottom: 1rem;
+	text-transform: capitalize;
+}
+
+.social__media__container {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 3rem 0;
+	margin: 0 auto;
+	max-width: 50rem;
+}
+
+.social__media__link {
+	display: inline-block;
+	height: 3.5rem;
+	width: 2rem;
+	background-repeat: no-repeat;
+}
+
+.social__media__link.facebook {
+	background-image: url(../media/facebook.svg);
+}
+
+.social__media__link.twitter {
+	background-image: url(../media/twitter.svg);
+}
+
+.social__media__link.instagram {
+	background-image: url(../media/instagram.svg);
+}
+
+.social__media__link.youtube {
+	background-image: url(../media/youtube.svg);
+	width: 3rem;
+}
+
+.footer__legal__links {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 3rem 0;
+	justify-content: space-evenly;
+	max-width: 80rem;
+	margin: 0 auto;
+}
+```
+
+```javascript
+const footerTitleEl = document.querySelectorAll('.footer__section__title')
+
+const toggleExpandSection = (element) => () =>
+	element.classList.toggle('is-expanded')
+
+footerTitleEl.forEach((el) => {
+	el.addEventListener('click', toggleExpandSection(el.parentElement))
+})
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s3p5yi70ckpk5f2sz106.png)
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xj04zdpkt5u2wbnqpqma.png)
+
+Explanation:
+
+1. Footer will have different sections. Each section will be an accordion when the screen size is small.
+2. When we will click on the footer title, then the `is-expanded` class will be attached to that section. And our accordion will be expanded.
+
+## Responsive
+
+```css
+/* sm=600 */
+/* md=900 */
+/* lg=1200 */
+/* xl=1600 */
+
+@media screen and (min-width: 600px) {
+	.library__title {
+		font-size: 6rem;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.library__grid {
+		grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+		justify-content: center;
+	}
+
+	.spotlight {
+		background-image: url(../media/live-sports.jpg);
+		display: grid;
+		align-items: center;
+	}
+
+	.spotlight__content {
+		padding: 0;
+		text-align: left;
+		max-width: 50rem;
+		padding-left: 10rem;
+	}
+
+	.spotlight__header {
+		margin-bottom: 5rem;
+	}
+
+	.expand__section__icon {
+		display: none;
+	}
+
+	.footer__section__links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	}
+
+	.footer__section__container {
+		display: grid;
+		grid-template-columns: 3fr 1fr 1fr;
+	}
+
+	.footer__section__title {
+		cursor: auto;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.login__modal {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: auto;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.footer {
+		padding: 0 15rem;
+	}
+}
+```
+<Tweet tweetLink='thatanjan/status/1504740456554385413' />
